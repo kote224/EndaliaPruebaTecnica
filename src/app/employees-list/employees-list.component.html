@@ -1,0 +1,28 @@
+<div class="employeeList col-md-12" *ngIf="userRol === 'admin'">
+  <app-header></app-header>
+  <div class="row">
+    <h1>Directorio de empleados</h1>
+    <div class="col-md-12 mb-3">
+      <input
+        type="text"
+        placeholder="Buscar"
+        [(ngModel)]="searchText"
+        (keyup)="filterEmployees()"
+      />
+    </div>
+    <div class="col-md-6 d-flex" *ngFor="let employees of empListFiltered">
+      <div class="employeeImg col-md-2">
+        <img
+          src="{{ employees.photo }}"
+          class="img-fluid"
+          alt="Foto de usuario"
+        />
+      </div>
+      <div class="employeeText col-md-4">
+        <h5 class="mt-3">{{ employees.name }}</h5>
+        <p>{{ employees.mail }}</p>
+        <p>{{ employees.phone }}</p>
+      </div>
+    </div>
+  </div>
+</div>
