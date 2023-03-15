@@ -10,7 +10,6 @@ describe('EmployeesListComponent', () => {
   let component: EmployeesListComponent;
   let fixture: ComponentFixture<EmployeesListComponent>;
   let employeeService: EmployeeService;
-  let sessionService: SessionService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -30,7 +29,6 @@ describe('EmployeesListComponent', () => {
   });
 
   it('should sort and set the employee list', () => {
-    // Set up
     const mockEmployees = [
       { name: 'John Doe', charge: 'Manager', phone: '', mail: '', photo: '' },
       { name: 'John Doe', charge: 'Manager', phone: '', mail: '', photo: '' },
@@ -38,12 +36,9 @@ describe('EmployeesListComponent', () => {
     ];
 
     sessionStorage.setItem('rol', 'admin');
-    console.log(sessionStorage.getItem('rol'));
-
     spyOn(employeeService, 'getAllEmployees').and.returnValue(mockEmployees);
     component.ngOnInit();
 
-    // Assert
     expect(employeeService.getAllEmployees).toHaveBeenCalled();
     expect(component.empList).toEqual([
       { name: 'John Doe', charge: 'Manager', phone: '', mail: '', photo: '' },

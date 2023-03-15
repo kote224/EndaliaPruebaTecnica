@@ -14,7 +14,7 @@ export class LoginService {
 
   public userNotFound: boolean = false;
   getUserById(user: any, password: any) {
-    //aquí deberia ir la logica con la llamada a la BD/keycloak/etc... Fuerzo un mock devolviendo datos si el user y pass estuvieran en la bd por si se quisiera poner el nombre en el header del usuario logeado.
+    //Aquí debería ir la lógica con la llamada a la BD/keycloak/etc... Fuerzo un mock devolviendo datos si el user y pass estuvieran en la bd por si se quisiera poner el nombre en el header del usuario logeado.
     this.login = loginResponse?.find((employee) => {
       const name = employee.name?.toLowerCase() || '';
       if (name === user.toLowerCase()) {

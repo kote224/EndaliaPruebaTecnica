@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class EmployeeService {
+  //Aquí habría que crear un observable y a través del http client hacer la llamada necesaria. Se le pasaría el user y pass del formulario.
   getAllEmployees() {
     return employeeListMock;
   }

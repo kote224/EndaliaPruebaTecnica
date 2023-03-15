@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    //Comprobamos si el formulario es valido para poder seguir adelante
+    //Comprobamos si el formulario es válido para poder seguir adelante
     if (this.loginForm.invalid) {
       return;
     } else {

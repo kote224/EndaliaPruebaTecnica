@@ -24,7 +24,7 @@ export class EmployeesListComponent {
   ) {}
 
   ngOnInit(): void {
-    //Comprobamos que se ha iniciado sesion con el rol. Si no tiene, es que se esta intentando acceder de forma incorrecta y se le reenvia al login
+    //Comprobamos que se ha iniciado sesión con el rol. Si no tiene, es que se esta intentando acceder de forma incorrecta y se le reenvia al login
     if (sessionStorage.getItem('rol') == null) this.router.navigate(['/']);
     else {
       //Cogemos el rol que devuelve la bd y comprobamos si es el necesario para ver la pagina
@@ -34,7 +34,7 @@ export class EmployeesListComponent {
     }
   }
 
-  //Rellena la lista a mostrar en el html y se rellena la lista que va a ser filtrada sin machacar la otra
+  //Rellena la lista a mostrar en el html y se rellena la lista que va a ser filtrada sin machacar la otra. Habría que añadir un subscribe(ok) para que siga trabajando justo cuando da ok el servicio.
   orderList() {
     this.empList = this.employeeService.getAllEmployees().sort((a, b) => {
       if (a.name < b.name) return -1;
@@ -46,7 +46,7 @@ export class EmployeesListComponent {
 
   //Filtra por el texto que le pones en el buscador
   filterEmployees(): void {
-    //Pone a minusculas el texto que le pasas
+    //Pone a minúsculas el texto que le pasas
     const searchText = this.searchText.toLowerCase();
     //Filtra poniendo a comillas por si algun campo es vacio. Devuelve los resultados y los guarda en la lista que mostramos
     this.empListFiltered = this.empList.filter((employee) => {
