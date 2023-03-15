@@ -4,18 +4,27 @@ import { EmployeesListComponent } from './employees-list/employees-list.componen
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { LoginComponent } from './login/login.component';
 
+//Se hace un lazy loading de las rutas
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent,
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginRoutingModule),
   },
   {
     path: 'EmployeeList',
-    component: EmployeesListComponent,
+    loadChildren: () =>
+      import('./employees-list/employees-list.module').then(
+        (m) => m.EmployeeRoutingModule
+      ),
   },
+
   {
     path: 'Unauthorized',
-    component: UnauthorizedComponent,
+    loadChildren: () =>
+      import('./unauthorized/unauthorized.module').then(
+        (m) => m.UnauthorizedRoutingModule
+      ),
   },
 ];
 
